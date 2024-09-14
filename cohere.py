@@ -2,6 +2,7 @@ import cohere
 import re
 import requests
 from google.colab import userdata
+from sqlite.py import *
 CohereKey = userdata.get('CohereKey')
 co = cohere.Client(api_key=CohereKey)
 
