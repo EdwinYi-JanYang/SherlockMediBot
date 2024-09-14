@@ -6,32 +6,58 @@
     <title>Sherlock Misinformation Search</title>
     <style>
         body {
+            background-color: #f5f5dc; /* Light beige background */
+            font-family: 'Georgia', serif; /* Classic font for a vintage feel */
+            color: #333; /* Dark text color for readability */
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
             text-align: center;
+            margin: 0;
         }
         #content {
-            border: 1px solid #ccc;
+            border: 2px solid #8B4513; /* Brown border */
+            border-radius: 10px;
             padding: 20px;
             width: 80%;
             max-width: 600px;
+            background-color: #fff; /* White background for content */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+        h1 {
+            font-size: 2.5em; /* Larger heading */
+            margin-bottom: 10px;
+        }
+        #update-message {
+            font-size: 1.2em; /* Slightly larger text for the update message */
+            margin-top: 15px; /* Spacing above the message */
+        }
+        img {
+            width: 150px; /* Resize the image to be smaller */
+            height: auto; /* Maintain aspect ratio */
+            margin-top: 20px; /* Space above the image */
+            border: 2px solid #8B4513; /* Brown border around the image */
+            border-radius: 5px; /* Rounded corners for the image */
         }
     </style>
 </head>
 <body>
     <div id="content">
         <h1>You've been caught!</h1>
-        <p id="message">Sherlock has determined you've been spreading misinformation on the internet.</p>
+        <p>Sherlock has determined you've been spreading misinformation on the internet.</p>
+        <p id="update-message">This message will be updated via API calls.</p>
         <img src="https://cdn.pixabay.com/photo/2013/07/12/13/46/sherlock-holmes-147255_1280.png" alt="Sherlock Holmes" />
     </div>
     <script>
         // Function to update the message
         async function updateMessage(newMessage) {
-            document.getElementById('message').innerText = newMessage;
+            document.getElementById('update-message').innerText = newMessage;
         }
+
+        // Example of updating the message - replace with your logic to fetch new content
+        updateMessage("This message has been updated by an API call!");
     </script>
 </body>
 </html>
