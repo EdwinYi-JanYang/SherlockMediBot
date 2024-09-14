@@ -1,0 +1,2 @@
+python -m pip install cohere --upgrade
+python -m pip install pandas
