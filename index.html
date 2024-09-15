@@ -54,7 +54,7 @@
                 margin: 20px auto;
                 border-radius: 50%;
                 overflow: hidden;
-                background-color: #FFA500; /* Orange background */
+                background-color: #FFA500;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -102,55 +102,22 @@
                 margin-top: 15px;
             }
         </style>
-        </head>
-        <body>
-            <script>
-              function solveMystery() {
-                  alert("Elementary, my dear Watson! The culprit has indeed been caught. Their spread of misinformation has been halted, thanks to our diligent investigation. The internet shall be a bit safer now.");
-              }
-
-              function toggleSources() {
-                  var sourcesDiv = document.getElementById("sources");
-                  var button = document.getElementById("toggle-sources");
-                  if (sourcesDiv.style.display === "none" || sourcesDiv.style.display === "") {
-                      sourcesDiv.style.display = "block";
-                      button.textContent = "Hide Sources";
-                  } else {
-                      sourcesDiv.style.display = "none";
-                      button.textContent = "Show Sources";
-                  }
-              }
-
-              document.addEventListener('DOMContentLoaded', function() {
-                  document.getElementById("solve-button").addEventListener("click", solveMystery);
-                  document.getElementById("toggle-sources").addEventListener("click", toggleSources);
-
-                  // Move the sources population code here
-                  var sources = <br><br> Here are the sources we used: <br><a href="https://www.who.int">https://www.who.int</a><br><a href="https://www.hhs.gov">https://www.hhs.gov</a><br><a href="https://www.nutrition.gov">https://www.nutrition.gov</a><br><a href="https://www.nih.gov/">https://www.nih.gov/</a><br><a href="https://www.nfid.org/infectious-diseases/">https://www.nfid.org/infectious-diseases/</a><br><a href="https://www.niams.nih.gov/health-topics/all-diseases">https://www.niams.nih.gov/health-topics/all-diseases</a><br><a href="https://www.malacards.org/">https://www.malacards.org/</a><br>;
-                  var sourceList = document.getElementById("source-list");
-                  if (sourceList) {  // Check if sourceList exists
-                      sources.forEach(function(source) {
-                          var li = document.createElement("li");
-                          li.textContent = source;
-                          sourceList.appendChild(li);
-                      });
-                  }
-              });
-            </script>
-            <div id="content">
-                <h1>Sherlock's Mystery Chamber</h1>
-                <div class="image-container">
-                    <img src="https://cdn.pixabay.com/photo/2013/07/12/13/46/sherlock-holmes-147255_1280.png" alt="Sherlock Holmes" />
+    </head>
+    <body>
+        <div id="content">
+            <h1>Sherlock's Mystery Chamber</h1>
+            <div class="image-container">
+                <img src="https://cdn.pixabay.com/photo/2013/07/12/13/46/sherlock-holmes-147255_1280.png" alt="Sherlock Holmes" />
+            </div>
+            <div id="case-file">
+                <h2>Case File: The Misinformation Menace</h2>
+                <p>A nefarious individual has been spreading misinformation across the internet. It's up to you, dear Watson, to assist in uncovering the truth.</p>
+                <p class="suspect">Suspect: @someDeviousUser1</p>
+                <div class="message">
+                    <p>Suspicious message content</p>
                 </div>
-                <div id="case-file">
-                    <h2>Case File: The Misinformation Menace</h2>
-                    <p>A nefarious individual has been spreading misinformation across the internet. It's up to you, dear Watson, to assist in uncovering the truth.</p>
-                    <p class="suspect">Suspect: @someDeviousUser</p>
-                    <div class="message">
-                        <p>Guys, Malaria is a hoax, I've been to Mexico 5 times and have never caught it</p>
-                    </div>
-                </div>
-                <p id="update-message">My dear Watson,
+            </div>
+            <p id="update-message">My dear Watson,
 
 I must say, I am not surprised that you have brought this case to my attention.<br> It is clear that this individual is spreading misinformation and I shall do my utmost to correct them.<br>
 
@@ -166,13 +133,38 @@ As for the accuracy of this post, I would give it a rating of 1 out of 10.<br>
 
 Yours sincerely,
 Sherlock Holmes<br><br> Watson! It seems our culprit is a serial rabble rouser! We've seen misinformation spread from this individual before! <br></p>
-                <button class="button" onclick="solveMystery()">Solve the Mystery</button>
-                <button class="button" onclick="toggleSources()">Show Sources</button>
-                <div id="sources">
-                    <h3>Sources:</h3>
-                    <ul id="source-list"></ul>
-                </div>
+            <button class="button" id="solve-button">Solve the Mystery</button>
+            <button class="button" id="toggle-sources">Show Sources</button>
+            <div id="sources" style="display: none;">
+                <h3>Sources:</h3>
+                <ul id="source-list">
+                    
+                </ul>
             </div>
-        </body>
-        </html>
+        </div>
+
+        <script>
+            function solveMystery() {
+                alert("Elementary, my dear Watson! The culprit has indeed been caught. Their spread of misinformation has been halted, thanks to our diligent investigation. The internet shall be a bit safer now.");
+            }
+
+            function toggleSources() {
+                var sourcesDiv = document.getElementById("sources");
+                var button = document.getElementById("toggle-sources");
+                if (sourcesDiv.style.display === "none") {
+                    sourcesDiv.style.display = "block";
+                    button.textContent = "Hide Sources";
+                } else {
+                    sourcesDiv.style.display = "none";
+                    button.textContent = "Show Sources";
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+                document.getElementById("solve-button").addEventListener("click", solveMystery);
+                document.getElementById("toggle-sources").addEventListener("click", toggleSources);
+            });
+        </script>
+    </body>
+    </html>
     
