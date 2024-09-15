@@ -105,31 +105,38 @@
         </head>
         <body>
             <script>
-                function solveMystery() {
-                    alert("Elementary, my dear Watson! The culprit has indeed been caught. Their spread of misinformation has been halted, thanks to our diligent investigation. The internet shall be a bit safer now.");
-                }
+            function solveMystery() {
+                alert("Elementary, my dear Watson! The culprit has indeed been caught. Their spread of misinformation has been halted, thanks to our diligent investigation. The internet shall be a bit safer now.");
+            }
 
-                function toggleSources() {
-                    var sourcesDiv = document.getElementById("sources");
-                    var button = document.querySelector("button:nth-of-type(2)");
-                    if (sourcesDiv.style.display === "none" || sourcesDiv.style.display === "") {
-                        sourcesDiv.style.display = "block";
-                        button.textContent = "Hide Sources";
-                    } else {
-                        sourcesDiv.style.display = "none";
-                        button.textContent = "Show Sources";
-                    }
+            function toggleSources() {
+                var sourcesDiv = document.getElementById("sources");
+                var button = document.getElementById("toggle-sources");
+                if (sourcesDiv.style.display === "none" || sourcesDiv.style.display === "") {
+                    sourcesDiv.style.display = "block";
+                    button.textContent = "Hide Sources";
+                } else {
+                    sourcesDiv.style.display = "none";
+                    button.textContent = "Show Sources";
                 }
+            }
 
-                // Populate sources
-                var sources = ['https://www.who.int', 'https://www.hhs.gov', 'https://www.nutrition.gov', 'https://www.nih.gov/', 'https://www.nfid.org/infectious-diseases/', 'https://www.niams.nih.gov/health-topics/all-diseases', 'https://www.malacards.org/'];
+            document.addEventListener('DOMContentLoaded', function() {
+                document.getElementById("solve-button").addEventListener("click", solveMystery);
+                document.getElementById("toggle-sources").addEventListener("click", toggleSources);
+
+                // Move the sources population code here
+                var sources = <br><br> Here are the sources we used: <br><a href="https://www.who.int">https://www.who.int</a><br><a href="https://www.hhs.gov">https://www.hhs.gov</a><br><a href="https://www.nutrition.gov">https://www.nutrition.gov</a><br><a href="https://www.nih.gov/">https://www.nih.gov/</a><br><a href="https://www.nfid.org/infectious-diseases/">https://www.nfid.org/infectious-diseases/</a><br><a href="https://www.niams.nih.gov/health-topics/all-diseases">https://www.niams.nih.gov/health-topics/all-diseases</a><br><a href="https://www.malacards.org/">https://www.malacards.org/</a><br>;
                 var sourceList = document.getElementById("source-list");
-                sources.forEach(function(source) {
-                    var li = document.createElement("li");
-                    li.textContent = source;
-                    sourceList.appendChild(li);
-                });
-            </script>
+                if (sourceList) {  // Check if sourceList exists
+                    sources.forEach(function(source) {
+                        var li = document.createElement("li");
+                        li.textContent = source;
+                        sourceList.appendChild(li);
+                    });
+                }
+            });
+        </script>
             <div id="content">
                 <h1>Sherlock's Mystery Chamber</h1>
                 <div class="image-container">
@@ -143,21 +150,22 @@
                         <p>Guys, Malaria is a hoax, I've been to Mexico 5 times and have never caught it</p>
                     </div>
                 </div>
-                <p id="update-message">Ah, the case of the missing malaria.<br>
+                <p id="update-message">My dear Watson,
 
-I must admit, my dear reader, that I was intrigued by this case.<br> I had heard of this disease, but I had never encountered it myself.<br> So, I decided to investigate.<br>
+I must say, I am not surprised that you have brought this case to my attention.<br> It is clear that this individual is spreading misinformation and I shall do my utmost to correct them.<br>
 
-I began by examining the evidence.<br> The user claims to have visited Mexico five times without catching malaria.<br> This is a curious case, as malaria is a serious and sometimes fatal disease transmitted by mosquitoes.<br> It is not a hoax, as the user suggests.<br>
+Malaria is a serious and sometimes fatal disease transmitted by mosquitoes.<br> It is not a hoax.<br> While the risk of malaria in Mexico is low, it is present intermittently throughout the year.<br> In recent years, the states of Campeche, Chiapas, Chihuahua, Durango, Nayarit, Oaxaca, Quintana Roo, Sinaloa and Tabasco have reported cases.<br>
 
-I delved deeper into my research and discovered that malaria risk in Mexico is low and is present intermittently throughout the year.<br> In recent years, the states of Campeche, Chiapas, Chihuahua, Durango, Nayarit, Oaxaca, Quintana Roo, Sinaloa and Tabasco have reported cases.<br>
+Malaria precautions are essential.<br> One must avoid mosquito bites by covering up with clothing such as long sleeves and long trousers, especially after sunset, using insect repellents on exposed skin and, when necessary, sleeping under a mosquito net.<br>
 
-However, there is no risk of malaria in popular tourist destinations including Acapulco, Mexico City, Cancun, Cozumel and the Mayan Riviera.<br>
+I must also point out that this individual's experience is not a reliable indicator of the prevalence of malaria in Mexico.<br> Just because they have not caught malaria does not mean that it is a hoax.<br> It is possible that they have not been exposed to the disease or that they have been taking the necessary precautions to avoid it.<br>
 
-So, my dear reader, it seems that the user's claim is not entirely accurate.<br> While it is true that they may not have caught malaria, it is not because the disease is a hoax.<br> Rather, it is because they may have visited areas where the risk of malaria is low or non-existent.<br>
+I would advise this individual to be more careful in the future and to refrain from spreading misinformation.<br>
 
-I must admit, I am disappointed that I did not have the opportunity to solve a more challenging case.<br> But, I am glad that I was able to provide you with the facts.<br> Remember, my dear reader, it is always important to do your research and not spread misinformation.<br>
+As for the accuracy of this post, I would give it a rating of 1 out of 10.<br>
 
-As for the accuracy of the user's post, I would give it a 3 out of 10.<br><br><br> Watson! It seems our culprit is a serial rabble rouser! We've seen misinformation spread from this individual before! <br></p>
+Yours sincerely,
+Sherlock Holmes<br><br> Watson! It seems our culprit is a serial rabble rouser! We've seen misinformation spread from this individual before! <br></p>
                 <button class="button" onclick="solveMystery()">Solve the Mystery</button>
                 <button class="button" onclick="toggleSources()">Show Sources</button>
                 <div id="sources">
