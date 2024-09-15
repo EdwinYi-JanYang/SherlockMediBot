@@ -128,8 +128,8 @@ The risk of malaria in Mexico is low and is present intermittently throughout th
 Malaria precautions are essential.<br> Avoid mosquito bites by covering up with clothing such as long sleeves and long trousers especially after sunset, using insect repellents on exposed skin and, when necessary, sleeping under a mosquito net.<br>
 
 So, my dear Watson, I must say that the user is spreading misinformation.<br> I would give this post an accuracy rating of 1 out of 10.<br><br><br> Watson! It seems our culprit is a serial rabble rouser! We've seen misinformation spread from this individual before! <br></p>
-                <button class="button" onclick="solveMystery()">Solve the Mystery</button>
-                <button class="button" onclick="toggleSources()">Show Sources</button>
+                <button class="button" id="solve-button">Solve the Mystery</button>
+                <button class="button" id="toggle-sources">Show Sources</button>
                 <div id="sources">
                     <h3>Sources:</h3>
                     <ul id="source-list"></ul>
@@ -137,21 +137,28 @@ So, my dear Watson, I must say that the user is spreading misinformation.<br> I 
             </div>
 
             <script>
-                function solveMystery() {
-                    alert("Elementary, my dear Watson! The culprit has indeed been caught. Their spread of misinformation has been halted, thanks to our diligent investigation. The internet shall be a bit safer now.");
-                }
+            // Define functions in the global scope
+            function solveMystery() {
+                alert("Elementary, my dear Watson! The culprit has indeed been caught. Their spread of misinformation has been halted, thanks to our diligent investigation. The internet shall be a bit safer now.");
+            }
 
-                function toggleSources() {
-                    var sourcesDiv = document.getElementById("sources");
-                    var button = document.querySelector("button:nth-of-type(2)");
-                    if (sourcesDiv.style.display === "none" || sourcesDiv.style.display === "") {
-                        sourcesDiv.style.display = "block";
-                        button.textContent = "Hide Sources";
-                    } else {
-                        sourcesDiv.style.display = "none";
-                        button.textContent = "Show Sources";
-                    }
+            function toggleSources() {
+                var sourcesDiv = document.getElementById("sources");
+                var button = document.getElementById("toggle-sources");
+                if (sourcesDiv.style.display === "none" || sourcesDiv.style.display === "") {
+                    sourcesDiv.style.display = "block";
+                    button.textContent = "Hide Sources";
+                } else {
+                    sourcesDiv.style.display = "none";
+                    button.textContent = "Show Sources";
                 }
+            }
+
+            // Wait for the DOM to be fully loaded
+            document.addEventListener('DOMContentLoaded', function() {
+                // Add event listeners to buttons
+                document.getElementById("solve-button").addEventListener("click", solveMystery);
+                document.getElementById("toggle-sources").addEventListener("click", toggleSources);
 
                 // Populate sources
                 var sources = <br><br> Here are the sources we used: <br><a href="https://www.who.int">https://www.who.int</a><br><a href="https://www.hhs.gov">https://www.hhs.gov</a><br><a href="https://www.nutrition.gov">https://www.nutrition.gov</a><br><a href="https://www.nih.gov/">https://www.nih.gov/</a><br><a href="https://www.nfid.org/infectious-diseases/">https://www.nfid.org/infectious-diseases/</a><br><a href="https://www.niams.nih.gov/health-topics/all-diseases">https://www.niams.nih.gov/health-topics/all-diseases</a><br><a href="https://www.malacards.org/">https://www.malacards.org/</a><br><a href="https://www.who.int/news-room/fact-sheets/detail/malaria">https://www.who.int/news-room/fact-sheets/detail/malaria</a><br><a href="https://www.mayoclinic.org/diseases-conditions/malaria/symptoms-causes/syc-20351184">https://www.mayoclinic.org/diseases-conditions/malaria/symptoms-causes/syc-20351184</a><br><a href="https://en.wikipedia.org/wiki/Malaria">https://en.wikipedia.org/wiki/Malaria</a><br>;
@@ -161,7 +168,8 @@ So, my dear Watson, I must say that the user is spreading misinformation.<br> I 
                     li.textContent = source;
                     sourceList.appendChild(li);
                 });
-            </script>
+            });
+        </script>
         </body>
         </html>
     
