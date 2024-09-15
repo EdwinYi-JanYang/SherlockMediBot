@@ -104,6 +104,28 @@
         </style>
     </head>
     <body>
+        <script>
+            function solveMystery() {
+                alert("Elementary, my dear Watson! The culprit has indeed been caught. Their spread of misinformation has been halted, thanks to our diligent investigation. The internet shall be a bit safer now.");
+            }
+
+            function toggleSources() {
+                var sourcesDiv = document.getElementById("sources");
+                var button = document.getElementById("toggle-sources");
+                if (sourcesDiv.style.display === "none") {
+                    sourcesDiv.style.display = "block";
+                    button.textContent = "Hide Sources";
+                } else {
+                    sourcesDiv.style.display = "none";
+                    button.textContent = "Show Sources";
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+                document.getElementById("solve-button").addEventListener("click", solveMystery);
+                document.getElementById("toggle-sources").addEventListener("click", toggleSources);
+            });
+        </script>
         <div id="content">
             <h1>Sherlock's Mystery Chamber</h1>
             <div class="image-container">
@@ -142,29 +164,6 @@ Sherlock Holmes<br><br> Watson! It seems our culprit is a serial rabble rouser! 
                 </ul>
             </div>
         </div>
-
-        <script>
-            function solveMystery() {
-                alert("Elementary, my dear Watson! The culprit has indeed been caught. Their spread of misinformation has been halted, thanks to our diligent investigation. The internet shall be a bit safer now.");
-            }
-
-            function toggleSources() {
-                var sourcesDiv = document.getElementById("sources");
-                var button = document.getElementById("toggle-sources");
-                if (sourcesDiv.style.display === "none") {
-                    sourcesDiv.style.display = "block";
-                    button.textContent = "Hide Sources";
-                } else {
-                    sourcesDiv.style.display = "none";
-                    button.textContent = "Show Sources";
-                }
-            }
-
-            document.addEventListener('DOMContentLoaded', function() {
-                document.getElementById("solve-button").addEventListener("click", solveMystery);
-                document.getElementById("toggle-sources").addEventListener("click", toggleSources);
-            });
-        </script>
     </body>
     </html>
     
