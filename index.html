@@ -48,13 +48,22 @@
                 margin-top: 20px;
                 line-height: 1.6;
             }
-            img {
+            .image-container {
+                width: 200px;
+                height: 200px;
+                margin: 20px auto;
+                border-radius: 50%;
+                overflow: hidden;
+                background-color: #FFA500; /* Orange background */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: 3px solid #8B4513;
+                box-shadow: 0 0 15px rgba(139, 69, 19, 0.7);
+            }
+            .image-container img {
                 width: 180px;
                 height: auto;
-                margin-top: 20px;
-                border: 3px solid #8B4513;
-                border-radius: 50%;
-                box-shadow: 0 0 15px rgba(139, 69, 19, 0.7);
             }
             .evidence {
                 background-color: rgba(255, 255, 255, 0.05);
@@ -87,15 +96,23 @@
                 padding: 20px;
                 text-align: left;
             }
+            .suspect {
+                font-weight: bold;
+                color: #d4af37;
+                margin-top: 15px;
+            }
         </style>
     </head>
     <body>
         <div id="content">
             <h1>Sherlock's Mystery Chamber</h1>
-            <img src="https://cdn.pixabay.com/photo/2013/07/12/13/46/sherlock-holmes-147255_1280.png" alt="Sherlock Holmes" />
+            <div class="image-container">
+                <img src="https://cdn.pixabay.com/photo/2013/07/12/13/46/sherlock-holmes-147255_1280.png" alt="Sherlock Holmes" />
+            </div>
             <div id="case-file">
                 <h2>Case File: The Misinformation Menace</h2>
                 <p>A nefarious individual has been spreading misinformation across the internet. It's up to you, dear Watson, to assist in uncovering the truth.</p>
+                <p class="suspect">Suspect: @happy</p>
                 <div class="evidence">
                     <p><strong>Evidence #1:</strong> Suspicious online activity detected.</p>
                     <p><strong>Evidence #2:</strong> Multiple accounts spreading similar false narratives.</p>
