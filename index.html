@@ -120,11 +120,6 @@
                     button.textContent = "Show Sources";
                 }
             }
-
-            document.addEventListener('DOMContentLoaded', function() {
-                document.getElementById("solve-button").addEventListener("click", solveMystery);
-                document.getElementById("toggle-sources").addEventListener("click", toggleSources);
-            });
         </script>
         <div id="content">
             <h1>Sherlock's Mystery Chamber</h1>
@@ -164,6 +159,13 @@ Sherlock Holmes<br><br> Watson! It seems our culprit is a serial rabble rouser! 
                 </ul>
             </div>
         </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                document.getElementById("solve-button").addEventListener("click", solveMystery);
+                document.getElementById("toggle-sources").addEventListener("click", toggleSources);
+            });
+        </script>
     </body>
     </html>
     
