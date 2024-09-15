@@ -68,7 +68,7 @@ print(final_msg)
 
 # Function to update the message in index.html
 def update_html_message(new_message):
-    GITHUB_TOKEN = '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'  # Your GitHub token
+    GITHUB_TOKEN = ''
     REPO_OWNER = 'EdwinYi-JanYang'  # Your GitHub username
     REPO_NAME = 'SherlockMediBot'  # Your GitHub Pages repo name
     FILE_PATH = 'index.html'  # Path to the file you want to update
