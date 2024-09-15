@@ -4,63 +4,113 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Sherlock Misinformation Search</title>
+        <title>Sherlock's Mystery Chamber</title>
         <style>
             body {
-                background-color: #f5f5dc; /* Light beige background */
-                font-family: 'Georgia', serif; /* Classic font for a vintage feel */
-                color: #333; /* Dark text color for readability */
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                height: 100vh;
-                text-align: center;
+                background-color: #1a1a1a;
+                font-family: 'Georgia', serif;
+                color: #e0e0e0;
                 margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background-image: url('https://i.imgur.com/ZMpfBYQ.jpg');
+                background-size: cover;
+                background-position: center;
             }
             #content {
-                border: 2px solid #8B4513; /* Brown border */
-                border-radius: 10px;
-                padding: 20px;
-                width: 80%;
-                max-width: 600px;
-                background-color: #fff; /* White background for content */
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+                background-color: rgba(0, 0, 0, 0.8);
+                border: 2px solid #8B4513;
+                border-radius: 15px;
+                padding: 30px;
+                width: 90%;
+                max-width: 800px;
+                box-shadow: 0 0 20px rgba(139, 69, 19, 0.5);
             }
             h1 {
-                font-size: 2.5em; /* Larger heading */
-                margin-bottom: 10px;
+                font-size: 2.8em;
+                margin-bottom: 20px;
+                color: #d4af37;
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            }
+            #case-file {
+                background-color: rgba(255, 255, 255, 0.1);
+                border: 1px solid #8B4513;
+                border-radius: 10px;
+                padding: 20px;
+                margin-top: 20px;
+                text-align: left;
             }
             #update-message {
-                font-size: 1.2em; /* Slightly larger text for the update message */
-                margin-top: 15px; /* Spacing above the message */
+                font-size: 1.2em;
+                margin-top: 20px;
+                line-height: 1.6;
             }
             img {
-                width: 150px; /* Resize the image to be smaller */
-                height: auto; /* Maintain aspect ratio */
-                margin-top: 20px; /* Space above the image */
-                border: 2px solid #8B4513; /* Brown border around the image */
-                border-radius: 5px; /* Rounded corners for the image */
+                width: 180px;
+                height: auto;
+                margin-top: 20px;
+                border: 3px solid #8B4513;
+                border-radius: 50%;
+                box-shadow: 0 0 15px rgba(139, 69, 19, 0.7);
+            }
+            .evidence {
+                background-color: rgba(255, 255, 255, 0.05);
+                border: 1px solid #8B4513;
+                border-radius: 5px;
+                padding: 10px;
+                margin-top: 15px;
+                font-style: italic;
+            }
+            #solve-button {
+                background-color: #d4af37;
+                color: #1a1a1a;
+                border: none;
+                padding: 10px 20px;
+                font-size: 1.2em;
+                margin-top: 20px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+            #solve-button:hover {
+                background-color: #ffd700;
             }
         </style>
     </head>
     <body>
         <div id="content">
-            <h1>You've been caught!</h1>
-            <p>Sherlock has determined you've been spreading misinformation on the internet.</p>
+            <h1>Sherlock's Mystery Chamber</h1>
             <img src="https://cdn.pixabay.com/photo/2013/07/12/13/46/sherlock-holmes-147255_1280.png" alt="Sherlock Holmes" />
-            <p id="update-message">Ah, my dear Watson, it seems we have another case of misinformation on our hands.<br> This time, the culprit is a misguided individual who claims that malaria is a hoax, simply because they have not contracted it during their five visits to Mexico.<br>
+            <div id="case-file">
+                <h2>Case File: The Misinformation Menace</h2>
+                <p>A nefarious individual has been spreading misinformation across the internet. It's up to you, dear Watson, to assist in uncovering the truth.</p>
+                <div class="evidence">
+                    <p><strong>Evidence #1:</strong> Suspicious online activity detected.</p>
+                    <p><strong>Evidence #2:</strong> Multiple accounts spreading similar false narratives.</p>
+                    <p><strong>Evidence #3:</strong> Trace of digital fingerprints leading to a single source.</p>
+                </div>
+            </div>
+            <p id="update-message">Ah, the case of the missing malarial infection.<br>
 
-Allow me to enlighten this misguided soul with the facts.<br> Malaria is a serious and sometimes fatal disease transmitted by mosquitoes.<br> While it is true that the risk of malaria in Mexico is generally low, it is not non-existent.<br> In fact, in recent years, the states of Campeche, Chiapas, Chihuahua, Durango, Nayarit, Oaxaca, Quintana Roo, Sinaloa and Tabasco have reported cases.<br>
+I must say, my dear Watson, that this case is most intriguing.<br> The user claims to have visited Mexico five times and not caught malaria.<br> They then go on to state that malaria is a hoax.<br>
 
-The risk of malaria is not evenly distributed throughout Mexico.<br> Major resorts and the US-Mexico border region are free of the disease.<br> However, there are some rural areas, particularly in the states mentioned above, where malaria risk is present intermittently.<br>
+Well, I must say that I am not so easily fooled.<br> I have done my research and I can tell you that malaria is indeed a real disease.<br> It is a serious and sometimes fatal disease transmitted by mosquitoes.<br> It cannot be vaccinated against.<br>
 
-It is important to note that malaria cannot be prevented by a vaccine.<br> Therefore, travellers to Mexico are advised to take precautions to avoid mosquito bites, such as covering up with clothing, using insect repellents, and sleeping under a mosquito net.<br>
+The risk of malaria in Mexico is low and is present intermittently throughout the year.<br> In recent years, the states of Campeche, Chiapas, Chihuahua, Durango, Nayarit, Oaxaca, Quintana Roo, Sinaloa and Tabasco have reported cases.<br>
 
-In conclusion, my dear Watson, this individual's claim that malaria is a hoax is nothing more than a dangerous fallacy.<br> It is imperative that travellers to Mexico, or any other country with a risk of malaria, take the necessary precautions to protect themselves from this potentially deadly disease.<br>
+Malaria precautions are essential.<br> Avoid mosquito bites by covering up with clothing such as long sleeves and long trousers especially after sunset, using insect repellents on exposed skin and, when necessary, sleeping under a mosquito net.<br>
 
-As for the accuracy of the original post, I would rate it a 0 out of 10.<br><br><br> Watson! It seems our culprit is a serial rabble rouser! We've seen misinformation spread from this individual before! <br><br><br> Here are the sources we used: <br><a href="https://www.who.int">https://www.who.int</a><br><a href="https://www.hhs.gov">https://www.hhs.gov</a><br><a href="https://www.nutrition.gov">https://www.nutrition.gov</a><br><a href="https://www.nih.gov/">https://www.nih.gov/</a><br><a href="https://www.nfid.org/infectious-diseases/">https://www.nfid.org/infectious-diseases/</a><br><a href="https://www.niams.nih.gov/health-topics/all-diseases">https://www.niams.nih.gov/health-topics/all-diseases</a><br><a href="https://www.malacards.org/">https://www.malacards.org/</a><br><a href="https://www.who.int/news-room/fact-sheets/detail/malaria">https://www.who.int/news-room/fact-sheets/detail/malaria</a><br><a href="https://www.mayoclinic.org/diseases-conditions/malaria/symptoms-causes/syc-20351184">https://www.mayoclinic.org/diseases-conditions/malaria/symptoms-causes/syc-20351184</a><br><a href="https://en.wikipedia.org/wiki/Malaria">https://en.wikipedia.org/wiki/Malaria</a><br></p>
+So, my dear Watson, I must say that the user is spreading misinformation.<br> I would give this post an accuracy rating of 1 out of 10.<br><br><br> Watson! It seems our culprit is a serial rabble rouser! We've seen misinformation spread from this individual before! <br></p>
+            <button id="solve-button" onclick="solveMystery()">Solve the Mystery</button>
         </div>
+
+        <script>
+            function solveMystery() {
+                alert("Elementary, my dear Watson! The culprit has indeed been caught. Their spread of misinformation has been halted, thanks to our diligent investigation. The internet shall be a bit safer now.");
+            }
+        </script>
     </body>
     </html>
     
