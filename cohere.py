@@ -27,17 +27,52 @@ response = co.chat(
         "id": "web-search",
     }]
 )
+urls = []
+for i in range(len(response.documents)):
+  urls.append(response.documents[i]['url'])
+  print(response.documents[i]['url'])
+print(response.documents)
+print(response.citations)
+
+def convert_to_html(response):
+    html_text = ""
+    current_index = 0
+    
+    # Create a dictionary to map document IDs to URLs
+    doc_url_map = {doc['id']: doc['url'] for doc in response.documents}
+
+    for citation in response.citations:
+        start_index = citation.start
+        end_index = citation.end
+
+        # Add text before the citation
+        html_text += response.text[current_index:start_index]
+
+        # Add cited text with anchor tag
+        cited_text = response.text[start_index:end_index]
+        doc_id = citation.document_ids[0]
+        url = doc_url_map.get(doc_id, '#')  # Use '#' if URL not found
+        html_text += f'<a href="{url}" target="_blank">{cited_text}</a>'
+
+        current_index = end_index
+
+    # Add any remaining text
+    html_text += response.text[current_index:]
+
+    return html_text
+    
+temp = convert_to_html(response)
 def add_br_after_sentences(text):
     # This pattern matches sentences ending with . ! or ?
     # It also accounts for sentences that end with quotation marks
     pattern = r'([.!?]"?)(\s+|\Z)'
-    
+
     # Replace the matched pattern with the punctuation, followed by <br> and any whitespace
     result = re.sub(pattern, r'\1<br>\2', text)
-    
+
     return result
 
-final_msg += add_br_after_sentences(response.text)
+final_msg += add_br_after_sentences(temp)
 
 
 entries = check_user_and_get_links(1, timestamp_to_check)
@@ -51,8 +86,8 @@ def extract_rating(text):
         return float(match.group(1))
     return None
 
-if int(extract_rating(response.text)) <= 3:
-    print("FLAG USER FOUND")
+# if int(extract_rating(response.text)) <= 3:
+#     print("FLAG USER FOUND")
     # insert_entry(userid, timestamp, textfield)
 
 sites = ["https://www.who.int", "https://www.hhs.gov", "https://www.nutrition.gov", "https://www.nih.gov/", "https://www.nfid.org/infectious-diseases/", "https://www.niams.nih.gov/health-topics/all-diseases", "https://www.malacards.org/"]
@@ -72,29 +107,21 @@ additional_text = "<br><br> Here are the sources we used: <br>"
 for i in range(len(sites)):
     additional_text += '<a href="' + sites[i] + '">' + sites[i] + '</a><br>'
 
-final_msg += additional_text
 print(final_msg)
+print(additional_text)
 
 # Function to update the message in index.html
-additional_text = "<br><br> Here are the sources we used: <br>"
-sites = ["https://www.who.int", "https://www.hhs.gov", "https://www.nutrition.gov", "https://www.nih.gov/", "https://www.nfid.org/infectious-diseases/", "https://www.niams.nih.gov/health-topics/all-diseases", "https://www.malacards.org/"]
-for i in range(len(sites)):
-    additional_text += '<a href="' + sites[i] + '">' + sites[i] + '</a><br>'
-
-suspect_username = "someDeviousUser1"
+suspect_username = "someDeviousUser"
 msg = "Guys, Malaria is a hoax, I've been to Mexico 5 times and have never caught it"
-final_msg = "My dear Watson, I must say, I am not surprised that you have brought this case to my attention.<br> It is clear that this individual is spreading misinformation and I shall do my utmost to correct them.<br> Malaria is a serious and sometimes fatal disease transmitted by mosquitoes.<br> It is not a hoax.<br> While the risk of malaria in Mexico is low, it is present intermittently throughout the year.<br> In recent years, the states of Campeche, Chiapas, Chihuahua, Durango, Nayarit, Oaxaca, Quintana Roo, Sinaloa and Tabasco have reported cases.<br> Malaria precautions are essential.<br> One must avoid mosquito bites by covering up with clothing such as long sleeves and long trousers, especially after sunset, using insect repellents on exposed skin and, when necessary, sleeping under a mosquito net.<br> I must also point out that this individual's experience is not a reliable indicator of the prevalence of malaria in Mexico.<br> Just because they have not caught malaria does not mean that it is a hoax.<br> It is possible that they have not been exposed to the disease or that they have been taking the necessary precautions to avoid it.<br> I would advise this individual to be more careful in the future and to refrain from spreading misinformation.<br> As for the accuracy of this post, I would give it a rating of 1 out of 10.<br> Yours sincerely, Sherlock Holmes<br><br> Watson! It seems our culprit is a serial rabble rouser! We've seen misinformation spread from this individual before! <br>"
 
 def generate_sources_list(sources):
     """Generate HTML for the sources list."""
-    temp = ''.join(f'<li><a href="{source}">{source}</a></li>' for source in sources)
-    print("sources: " + temp)
-    return temp
+    return ''.join(f'<li><a href="{source}">{source}</a></li>' for source in sources)
 
 def generate_mystery_chamber(suspect_username, message, final_msg, additional_text):
     """
     Generate the HTML content for Sherlock's Mystery Chamber.
-    
+
     :param suspect_username: The username of the suspect
     :param message: The message content
     :param final_msg: The final message about the investigation
