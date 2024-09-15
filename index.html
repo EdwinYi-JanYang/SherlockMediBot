@@ -104,6 +104,32 @@
         </style>
         </head>
         <body>
+            <script>
+                function solveMystery() {
+                    alert("Elementary, my dear Watson! The culprit has indeed been caught. Their spread of misinformation has been halted, thanks to our diligent investigation. The internet shall be a bit safer now.");
+                }
+
+                function toggleSources() {
+                    var sourcesDiv = document.getElementById("sources");
+                    var button = document.querySelector("button:nth-of-type(2)");
+                    if (sourcesDiv.style.display === "none" || sourcesDiv.style.display === "") {
+                        sourcesDiv.style.display = "block";
+                        button.textContent = "Hide Sources";
+                    } else {
+                        sourcesDiv.style.display = "none";
+                        button.textContent = "Show Sources";
+                    }
+                }
+
+                // Populate sources
+                var sources = ['https://www.who.int', 'https://www.hhs.gov', 'https://www.nutrition.gov', 'https://www.nih.gov/', 'https://www.nfid.org/infectious-diseases/', 'https://www.niams.nih.gov/health-topics/all-diseases', 'https://www.malacards.org/'];
+                var sourceList = document.getElementById("source-list");
+                sources.forEach(function(source) {
+                    var li = document.createElement("li");
+                    li.textContent = source;
+                    sourceList.appendChild(li);
+                });
+            </script>
             <div id="content">
                 <h1>Sherlock's Mystery Chamber</h1>
                 <div class="image-container">
@@ -135,33 +161,6 @@ As for the accuracy of the original post, I would rate it a 2 out of 10.<br><br>
                     <ul id="source-list"></ul>
                 </div>
             </div>
-
-            <script>
-                function solveMystery() {
-                    alert("Elementary, my dear Watson! The culprit has indeed been caught. Their spread of misinformation has been halted, thanks to our diligent investigation. The internet shall be a bit safer now.");
-                }
-
-                function toggleSources() {
-                    var sourcesDiv = document.getElementById("sources");
-                    var button = document.querySelector("button:nth-of-type(2)");
-                    if (sourcesDiv.style.display === "none" || sourcesDiv.style.display === "") {
-                        sourcesDiv.style.display = "block";
-                        button.textContent = "Hide Sources";
-                    } else {
-                        sourcesDiv.style.display = "none";
-                        button.textContent = "Show Sources";
-                    }
-                }
-
-                // Populate sources
-                var sources = ['https://www.who.int', 'https://www.hhs.gov', 'https://www.nutrition.gov', 'https://www.nih.gov/', 'https://www.nfid.org/infectious-diseases/', 'https://www.niams.nih.gov/health-topics/all-diseases', 'https://www.malacards.org/'];
-                var sourceList = document.getElementById("source-list");
-                sources.forEach(function(source) {
-                    var li = document.createElement("li");
-                    li.textContent = source;
-                    sourceList.appendChild(li);
-                });
-            </script>
         </body>
         </html>
     
