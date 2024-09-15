@@ -16,7 +16,7 @@
                 justify-content: center;
                 align-items: center;
                 min-height: 100vh;
-                background-image: url('https://i.imgur.com/ZMpfBYQ.jpg');
+                background-image: url('https://t3.ftcdn.net/jpg/03/20/02/22/360_F_320022201_iskWgYQZDICRWh64UPxwyV97EBOiQS3z.jpg');
                 background-size: cover;
                 background-position: center;
             }
@@ -64,7 +64,7 @@
                 margin-top: 15px;
                 font-style: italic;
             }
-            #solve-button {
+            .button {
                 background-color: #d4af37;
                 color: #1a1a1a;
                 border: none;
@@ -73,9 +73,19 @@
                 margin-top: 20px;
                 cursor: pointer;
                 transition: background-color 0.3s;
+                margin-right: 10px;
             }
-            #solve-button:hover {
+            .button:hover {
                 background-color: #ffd700;
+            }
+            #sources {
+                display: none;
+                margin-top: 20px;
+                background-color: rgba(255, 255, 255, 0.1);
+                border: 1px solid #8B4513;
+                border-radius: 10px;
+                padding: 20px;
+                text-align: left;
             }
         </style>
     </head>
@@ -103,13 +113,40 @@ The risk of malaria in Mexico is low and is present intermittently throughout th
 Malaria precautions are essential.<br> Avoid mosquito bites by covering up with clothing such as long sleeves and long trousers especially after sunset, using insect repellents on exposed skin and, when necessary, sleeping under a mosquito net.<br>
 
 So, my dear Watson, I must say that the user is spreading misinformation.<br> I would give this post an accuracy rating of 1 out of 10.<br><br><br> Watson! It seems our culprit is a serial rabble rouser! We've seen misinformation spread from this individual before! <br></p>
-            <button id="solve-button" onclick="solveMystery()">Solve the Mystery</button>
+            <button class="button" onclick="solveMystery()">Solve the Mystery</button>
+            <button class="button" onclick="toggleSources()">Show Sources</button>
+            <div id="sources">
+                <h3>Sources:</h3>
+                <ul id="source-list"></ul>
+            </div>
         </div>
 
         <script>
             function solveMystery() {
                 alert("Elementary, my dear Watson! The culprit has indeed been caught. Their spread of misinformation has been halted, thanks to our diligent investigation. The internet shall be a bit safer now.");
             }
+
+            function toggleSources() {
+                var sourcesDiv = document.getElementById("sources");
+                var button = document.querySelector("button:nth-of-type(2)");
+                if (sourcesDiv.style.display === "none" || sourcesDiv.style.display === "") {
+                    sourcesDiv.style.display = "block";
+                    button.textContent = "Hide Sources";
+                } else {
+                    sourcesDiv.style.display = "none";
+                    button.textContent = "Show Sources";
+                }
+            }
+
+            // Populate sources (replace with your actual sources)
+            var sources = <br><br> Here are the sources we used: <br><a href="https://www.who.int">https://www.who.int</a><br><a href="https://www.hhs.gov">https://www.hhs.gov</a><br><a href="https://www.nutrition.gov">https://www.nutrition.gov</a><br><a href="https://www.nih.gov/">https://www.nih.gov/</a><br><a href="https://www.nfid.org/infectious-diseases/">https://www.nfid.org/infectious-diseases/</a><br><a href="https://www.niams.nih.gov/health-topics/all-diseases">https://www.niams.nih.gov/health-topics/all-diseases</a><br><a href="https://www.malacards.org/">https://www.malacards.org/</a><br><a href="https://www.who.int/news-room/fact-sheets/detail/malaria">https://www.who.int/news-room/fact-sheets/detail/malaria</a><br><a href="https://www.mayoclinic.org/diseases-conditions/malaria/symptoms-causes/syc-20351184">https://www.mayoclinic.org/diseases-conditions/malaria/symptoms-causes/syc-20351184</a><br><a href="https://en.wikipedia.org/wiki/Malaria">https://en.wikipedia.org/wiki/Malaria</a><br>;
+
+            var sourceList = document.getElementById("source-list");
+            sources.forEach(function(source) {
+                var li = document.createElement("li");
+                li.textContent = source;
+                sourceList.appendChild(li);
+            });
         </script>
     </body>
     </html>
